@@ -9,7 +9,7 @@ const userSlice = createSlice({
   },
   reducers: {
     testState: (state,action) => {
-      console.log("comming in asddction",action.payload);
+      console.log("comming in asddction from my side",action.payload);
       state.testing = action.payload;
     },
     loginSuccess: (state, action) => {
