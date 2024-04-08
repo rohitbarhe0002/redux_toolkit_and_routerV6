@@ -1,10 +1,10 @@
-import React from 'react'
-import {Row,Col,Form,Button} from 'react-bootstrap';
-import { testState } from '../Redux/reducer/userReducer'
+import React from 'react';
+import { Button, Col, Form, Row } from 'react-bootstrap';
+// import { testState } from '../Redux/reducer/userReducer'
 import { useDispatch } from "react-redux";
 import { useNavigate } from 'react-router-dom';
 
-import axios from 'axios'
+import axios from 'axios';
 import { useEffect } from 'react';
 function Login() {
     const dispatch = useDispatch();
@@ -15,7 +15,7 @@ function Login() {
     }
     useEffect ( async () => {
         console.log("useEffect eweis running from login ");
-        dispatch(testState('barche'));
+        // dispatch(testState('barche')); 
         axios.post('http://localhost:5000/api/auth/login', { username:"dilip",  password:"11111111"
         })
         .then((response) => { 
@@ -25,7 +25,7 @@ console.log(response.data.accsessToken);
    if(response.data) {
     
    console.log(response.data.accessToken,"===========accetfk");
-   dispatch(testState(response.data.accsessToken));
+  //  dispatch(testState(response.data.accsessToken));
    localStorage.setItem('newUser',response.data.accsessToken)
    }
 

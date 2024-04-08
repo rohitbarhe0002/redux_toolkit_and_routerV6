@@ -1,15 +1,15 @@
-import { configureStore, combineReducers } from "@reduxjs/toolkit";
-import userReducer from "../reducer/userReducer"
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
+import userReducer from "../reducer/todosReducer";
 
 import {
-  persistStore,
-  persistReducer,
   FLUSH,
-  REHYDRATE,
   PAUSE,
   PERSIST,
   PURGE,
   REGISTER,
+  REHYDRATE,
+  persistReducer,
+  persistStore,
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 
@@ -19,7 +19,7 @@ const persistConfig = {
   storage,
 };
 
-const rootReducer = combineReducers({ user: userReducer });
+const rootReducer = combineReducers({ todos: userReducer });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
